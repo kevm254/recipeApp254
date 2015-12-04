@@ -31,21 +31,27 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test 'summary cannot be too long' do
-
+    @recipe.summary = 'b' * 151
+    assert_not @recipe.valid?
   end
 
   test 'summary cannot be too short' do
-
+    @recipe.summary = 'b' * 9
+    assert_not @recipe.valid?
   end
 
   test 'description should be present' do
-
+    @recipe.description = ''
+    assert_not @recipe.valid?
   end
 
   test 'description cannot be too long' do
-
+    @recipe.description = 'b' * 501
+    assert_not @recipe.valid?
   end
 
   test 'description cannot be too short' do
+    @recipe.description = 'b' * 19
+    assert_not @recipe.valid?
   end
 end
