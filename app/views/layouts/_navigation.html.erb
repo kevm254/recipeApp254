@@ -5,14 +5,14 @@
       <!-- BEGIN NAV-->
       <nav class="navbar navbar-fixed-top navbar-default-bg">
         <!-- BRAND -->
-        <%= link_to 'myRecipes', '#', class: 'navbar-brand btn btn-lg btn-success', id: 'logo'  %>
+        <%= link_to 'myRecipes', root_path, class: 'navbar-brand btn btn-lg btn-success', id: 'logo'  %>
         <!-- END BRAND -->
         <!-- NAVBAR LINKS-->
         <ul class="nav navbar-nav">
           <li class="nav-item"><%= link_to 'myRecipes2', '#', class: 'nav-link btn btn-default btn-warning' %>
           <li class="nav-item"><%= link_to 'myRecipes2', '#', class: 'nav-link btn btn-default btn-warning' %>
           <li class="nav-item"><%= link_to 'myRecipes2', '#', class: 'nav-link btn btn-default btn-warning' %>
-          <li class="nav-item"><%= link_to 'myRecipes2', '#', class: 'nav-link btn btn-default btn-warning' %>
+          <li class="nav-item"><%= link_to 'Create New Recipe', new_recipe_path, class: 'nav-link btn btn-default btn-warning' %>
           </li>
         </ul>
       </nav>
