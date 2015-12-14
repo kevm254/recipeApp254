@@ -1,6 +1,7 @@
 class Recipe < ActiveRecord::Base
   # ASSOCIATIONS
   belongs_to :chef
+  has_many :likes
 
   # VALIDATIONS
   validates :chef_id, presence: true
@@ -11,6 +12,13 @@ class Recipe < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def thumbs_up_total
+    self.likes.where(like: true).size
+  end
+
+  def thumbs_down_total
+    self.likes.where(like: false).size
+  end
 
   private
   def picture_size

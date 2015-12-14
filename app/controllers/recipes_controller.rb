@@ -38,6 +38,19 @@ class RecipesController < ApplicationController
     end
   end
 
+  def like
+    @recipe = Recipe.find(params[:id])
+    like = Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "Your selection was successful"
+      redirect_to :back
+    else
+      flash[:danger] = "You can only like/dislike a recipe once"
+      redirect_to :back
+    end
+
+  end
+
 
   private
   def recipe_params
