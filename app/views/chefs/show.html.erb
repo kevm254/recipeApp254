@@ -17,6 +17,7 @@
 <% @recipes.each do |recipe| %>
   <div class="row">
     <div class="col-md-8 card col-md-offset-2">
+
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary %></p>
       <p>
