@@ -2,6 +2,8 @@ $navbar-default-bg: #312312;
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 
+
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 // NAVBAR /////////////////
@@ -70,7 +72,7 @@ footer {
   background-color: lightcyan;
 }
 
-input, textarea, select, .uneditable-input {
+input[type='text'], input[type='submit'], textarea, select, .uneditable-input {
   border: 1px solid #d2d2d2;
   border-radius: 5px;
   width: 100%;

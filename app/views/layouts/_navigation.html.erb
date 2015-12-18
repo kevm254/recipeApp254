@@ -5,10 +5,14 @@
       <!-- BEGIN NAV-->
       <nav class="navbar navbar-fixed-top navbar-default">
         <!-- BRAND -->
-        <%= link_to 'myRecipes', root_path, class: 'navbar-brand btn btn-lg btn-success', id: 'logo'  %>
+        <%= link_to 'Recipes', root_path, class: 'navbar-brand btn btn-lg btn-success', id: 'logo'  %>
         <!-- END BRAND -->
         <!-- NAVBAR LINKS-->
         <ul class="nav navbar-nav">
+
+          <% if logged_in? %>
+              <li class="nav_item"><%= link_to 'Create New Recipe', new_recipe_path, class: 'nav-link btn btn-default btn-warning' %></li>
+          <% end %>
 
           <ul class="nav_ul_item">
             <li class="dropdown">
@@ -55,12 +59,10 @@
 
 
           <% if logged_in? %>
-              <li class="nav_item"><%= link_to 'Create New Recipe', new_recipe_path, class: 'nav-link btn btn-default btn-warning' %></li>
-
-              <ul class="nav_item">
+              <ul class="nav_ul_item">
                 <li class="dropdown">
                   <%= link_to '#', class: 'btn btn-default btn-danger dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-                    <%= current_user.chefname %> <b class="caret"></b>
+                    <%= current_user.chefname %> - Settings<b class="caret"></b>
                   <% end %>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'View Profile', chef_path(current_user) %></li>
@@ -75,6 +77,9 @@
                 <%= link_to 'Log In', login_path, class: 'nav-link btn btn-default btn-success' %>
               </li>
             <% end %>
+
+
+      <!-- END NAV -->
         </ul>
       </nav>
       <!-- END NAV -->
