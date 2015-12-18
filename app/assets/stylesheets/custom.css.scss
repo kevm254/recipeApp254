@@ -72,7 +72,7 @@ footer {
   background-color: lightcyan;
 }
 
-input[type='text'], input[type='submit'], input[type='password'], textarea, select, .uneditable-input {
+input, textarea, select, .uneditable-input {
   border: 1px solid #d2d2d2;
   border-radius: 5px;
   width: 100%;
