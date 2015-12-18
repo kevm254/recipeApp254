@@ -1,10 +1,10 @@
 <%= render 'shared/page_title', title: 'All Recipes' %>
 
 <ul class="nav nav-tabs">
-  <li class="nav-item nav-link-active">
+  <li class="active">
     <%= link_to 'Recipes', recipes_path, class: 'nav-link active' %>
   </li>
-  <li class="nav-item">
+  <li>
     <%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
   </li>
 </ul>
@@ -20,11 +20,15 @@
       </section>
     </div>
 
-    <div class="col-md-5 card">
+    <div class="col-md-5 well">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary %></p>
-      <p>Style: <%= render recipe.styles %></p>
-      <p>Ingredients: <%= render recipe.ingredients %></p>
+      <% if recipe.styles.any? %>
+        <p>Style: <%= render recipe.styles %></p>
+      <% end %>
+      <% if recipe.ingredients.any? %>
+        <p>Ingredients: <%= render recipe.ingredients %></p>
+      <% end %>
       <p>
         <span class='quiet'><small>created <%= time_ago_in_words(recipe.created_at) %> ago</small></span>,
         <span class='quiet'><small> updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small></span>
